@@ -1,0 +1,108 @@
+
+.navUlBB {
+    list-style: none;
+    //justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 5px;
+    position: relative;
+    @media screen and (min-width: $screen-md) {
+        position: static;
+    }
+    .logos {
+        width: 54px;
+    }
+    a {
+        display: block;
+        
+    }
+    li {
+        background-color: rgba(255,255,255,1);
+        transition: background-color .3s ease;
+        @media screen and (min-width: $screen-md) {
+            position: relative;
+        }
+        padding: 5px;
+        border-radius: 6px;
+        .submenu {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            width: 300px;
+            box-sizing: border-box;
+            bottom: 64px;
+            left: 0;
+            @media screen and (min-width: $screen-md) {
+                left: auto;
+                right: 0;
+            }
+            color: #000;
+            h3 {
+                color: $blue;
+                margin-top: 0;
+                padding-top: 5px;
+                padding-bottom: 10px;
+                border-bottom: 3px solid $teal;
+
+            }
+            .pointer {
+                width: 20px;
+                height: 20px;
+                background-color: #efefef;
+                position: relative;
+                left: 20px;
+                @media screen and (min-width: $screen-md) {
+                    left: 260px;
+                }
+                top: -18px;
+                border-radius: 2px;
+                transform: rotate(45deg);
+            }
+            .subdiv {
+                background-color: #efefef;
+                padding: 10px 10px 20px 10px;
+                border-radius: 8px;
+                position: relative;
+                top: -4px;
+                box-shadow: 0 4px 10px 10px rgba(0,0,0,.06);
+            }
+            a.button {
+                transition: background-color .3s ease;
+                border-radius: 4px;
+                text-decoration: none;
+                display: inline-block;
+                padding: 4px 12px;
+            }
+            a.button:link, a.button:active, a.button:visited {
+                background-color: $teal;
+                color: #fff;
+            }
+            a.button:hover {
+                color: #fff;
+                background-color: $ob-orange;
+            }
+        }
+    }
+    li:hover {
+        .submenu {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    li.firstWhite {
+        width: 20px;
+        background-color: rgba(255,255,255,1);
+    }
+    li.lastWhite {
+        flex: 1;
+        background-color: rgba(255,255,255,1);
+    }
+    li.cr {
+        background-color: rgba($color: #efefef, $alpha: .9);
+    }
+    li.bh, li.cr, li.pb, li.bg {
+        &:hover {
+            background-color: rgba($color: #efefef, $alpha: .99);
+        }
+    }
+}

@@ -10,7 +10,27 @@ export default async function handleRequest(
   responseHeaders: Headers,
   remixContext: EntryContext,
 ) {
-  const {nonce, header, NonceProvider} = createContentSecurityPolicy();
+  const {nonce, header, NonceProvider} = createContentSecurityPolicy({
+    defaultSrc: [
+      "'self'",
+      'data:',
+    ],
+    styleSrc: [
+      "'self'",
+      'https://fonts.googleapis.com/',
+      'https://cdnjs.cloudflare.com/',
+      'https://cdn.jsdelivr.net/',
+    ],
+    connectSrc: [
+      "'self'",
+      'ws://localhost:3001/',
+    ],
+    fontSrc: [
+      "'self'",
+      'https://fonts.gstatic.com/',
+      'https://cdnjs.cloudflare.com/',
+    ],
+  });
 
   const body = await renderToReadableStream(
     <NonceProvider>

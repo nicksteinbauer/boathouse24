@@ -3,7 +3,7 @@
     "./**/*.d.ts",
     "./**/*.ts",
     "./**/*.tsx"
-  ],
+, "app/components/MainForm.jsx"  ],
   "compilerOptions": {
     "lib": [
       "DOM",

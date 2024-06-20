@@ -1,0 +1,104 @@
+$height-icon: 21px;
+$width-line: 36px;
+$height-line: 3px;
+$transition-time: 0.4s;
+$rotation: 45deg;
+$translateX: 0;
+
+$transition-time: 0.4s;
+$rotation: 45deg;
+$translateY: calc($height-icon / 2);
+$translateX: 0;
+.hamburger {
+  //background: $green;
+  cursor: pointer;
+  height: 100%;
+  width: 46px;
+  @media screen and (min-width: $screen-md) {
+    display: none;
+  }
+}
+
+.hamburger.active {
+   
+   
+    position: fixed;
+    top: 8px;
+    right: 120px;
+    height: 44px;
+    z-index: 100001;
+}
+
+.ham-trigger {
+  //padding: 0 30px;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+
+
+.ham-button {
+  position: relative;
+  width: $width-line;
+  height: $height-icon;
+  display: block;
+
+  .line {
+    display: block;
+    background: #fff;
+
+    width: $width-line;
+    height: $height-line;
+    position: absolute;
+
+    //border-radius: calc($height-line / 2);
+    transition: all $transition-time;
+    -webkit-transition: all $transition-time;
+    -moz-transition: all $transition-time;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    &.line-1 {
+      top: 0;
+    }
+    &.line-2 {
+      top: 50%;
+    }
+    &.line-3 {
+      top: 100%;
+    }
+  }
+  &:hover,
+  &:focus {
+    .line-1 {
+      transform: translateY(calc($height-line / 2 * -1));
+    }
+    .line-3 {
+      transform: translateY(calc($height-line / 2));
+    }
+  }
+  &.active {
+    .line-1 {
+        transform: translateY(10px) translate(0) rotate(45deg);
+    }
+    .line-2 {
+      opacity: 0;
+    }
+    .line-3 {
+        transform: translateY(-10px) translate(0) rotate(-45deg);
+
+    }
+  }
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: $blue;
+    padding: 0;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin: 0;
+    z-index: 100000;
+}

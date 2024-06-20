@@ -1,0 +1,180 @@
+
+
+.mainHeader {
+    background-color: $blue;
+    position: absolute;
+    width: 100%;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: $displayText;
+        text-transform: uppercase;
+        font-size: 1.1em;
+        text-align: center;
+        gap: 2px;
+    }
+    a {
+        text-decoration: none;
+        transition: background-color .4s ease;
+        padding: 5px 18px;
+        border-radius: 6px;
+    }
+    a:link, a:active, a:visited {
+        color: #fff;
+    }
+    a:hover {
+        background-color: $teal;
+    }
+    bottom: 0;
+    z-index: 10;
+}
+
+a.reserveButton {
+    display: inline-block;
+    text-decoration: none;
+    //padding: 8px;
+    border-radius: 6px;
+    transition: background-color .3s ease;
+    &:link, &:active, &:visited {
+        background-color: $teal;
+        color: #fff;
+    }
+    &:hover {
+        background-color: $ob-orange;
+    }
+}
+button.reserveButton {
+    text-transform: uppercase;
+    background-color: $teal;
+    border: none;
+    color: #fff;
+    display: inline-block;
+    height: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    &:hover {
+        background-color: $ob-orange;
+    }
+}
+
+.auto-grid-rates {
+    a.reserveButton {
+        display: inline-block;
+        text-decoration: none;
+        padding: 8px;
+        border-radius: 6px;
+        transition: background-color .3s ease;
+        &:link, &:active, &:visited {
+            background-color: $teal;
+            color: #fff;
+        }
+        &:hover {
+            background-color: $ob-orange;
+        }
+    }
+}
+
+.imNotHome, .sticky {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: auto;
+    margin-top: 0;
+    z-index: 9990;
+}
+
+.header-present {
+    padding-top: 84px;
+    padding-bottom: 20px;
+}
+
+.desktopNav {
+    display: none;
+    @media screen and (min-width: $screen-md) {
+        display: block;
+    }
+}
+
+.topLogoSvg {
+    width: 140px;
+    @media screen and (min-width: $screen-md) {
+        width: 300px;
+    }
+}
+
+.teal {
+    fill: $teal;
+}
+
+.blue {
+    fill: $blue;
+}
+
+.mainFooter {
+    background-color: $blue;
+    padding: 50px 0 40px;
+    .pinLogo {
+        flex: 0 0 50px;
+    }
+    .cartRentalLogo {
+        flex: 0 0 190px;
+        padding-left: 15px;
+        position: relative;
+        top: 2px;
+    }
+    color: $gray;
+    h4 {
+        padding-top: 10px;
+    }
+    a {
+        transition: color .3s ease;
+        text-decoration: none;
+    }
+    a:link, a:active, a:visited {
+        color: #fff;
+    }
+    a:hover {
+        color: $ob-orange;
+    }
+    ul {
+        margin: 0 0 20px;
+        padding: 0;
+        list-style: none;
+    }
+    .thirty {
+        h4 {
+            padding-bottom: 15px;
+        }
+    }
+    .reserveButton {
+        position: relative;
+        left: -8px;
+        margin-top: 5px;
+        transition: background-color .3s ease;
+    }
+}
+
+
+
+.modal-backdrop {
+    z-index: 10000;
+}
+.modal {
+    z-index: 10001;
+}
+.modal-dialog {
+    height: 100%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.header-ctas {
+    margin-left: 0;
+}
+.navUl {
+    li {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,95 @@
+
+
+
+
+.heroForm {
+    padding: 20px 20px 10px;
+    position: relative;
+    gap: 10px;
+    input {
+        color: $blue;
+    }
+    label span {
+        position: absolute;
+        left: -999em;
+    }
+    .inputContainer {
+        color: $blue;
+        margin-bottom: 10px;
+        label {
+            display: block;
+        }
+        @media screen and (min-width: $screen-sm) {
+            margin-bottom: 0;
+        }
+        input, select {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            height: 100%;
+        }
+    }
+
+    .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {
+        left: auto !important;
+    }
+    
+}
+
+.inputButton {
+        
+    background: $teal;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-family: $displayText;
+    text-transform: uppercase;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    transition: background-color .4s ease;
+    @media screen and (min-width: $screen-sm) {
+        flex: 1;
+        padding: auto;
+    }
+}
+.inputButton:hover {
+    background-color: $ob-orange;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+.react-datepicker__navigation-icon--next {
+    left: 2px !important;
+    position: relative !important;
+}
+
+.react-datepicker__navigation-icon--previous {
+    right: -2px !important;
+    position: relative !important;
+    left: auto !important;
+}
+
+.react-datepicker__input-container input {
+    flex: 0 0 100% !important;
+}
+
+.modal-body {
+    .heroForm {
+        .forty {
+            flex: 1;
+        }
+        .inputButton {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+.select {
+    background-color: #fff;
+    border-radius: 4px;
+    height: 45px;
+    //border: 2px solid #ccc;
+}

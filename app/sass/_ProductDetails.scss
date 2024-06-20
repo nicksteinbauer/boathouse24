@@ -1,0 +1,280 @@
+
+
+.media {
+    width: 100%;
+}
+
+
+
+.buybox {
+    
+    h1 {
+        font-size: 1.7em  ;
+        @media screen and (min-width: $screen-md) {
+            font-size: 2.0em  ;
+        }
+        position: relative;
+        padding-bottom: 9px;
+        &::after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background-color: $blue;
+            left: 0;
+            bottom: 0;
+            border-radius: 3px;
+        }
+    }
+    padding: 10px 10px 20px;
+    @media screen and (min-width: $screen-lg) {
+        padding: 0 30px;
+    }
+    > div {
+        position: relative;
+        padding: 20px 0;
+        @media screen and (min-width: $screen-md) {
+            padding: 20px;
+        }
+        // background-color: rgba($color: #fff, $alpha: .4);
+        // border-radius: 10px;
+        
+    }
+    h1 {
+        //padding-right: 100px;
+        padding-top: 0 !important;
+    }
+    .productDescription {
+        margin: 10px 0;
+    }
+    .product-price {
+        color: $blue;
+        font-size: .8em;
+    }
+    
+}
+
+.productForm {
+    margin: 20px 0;
+    .flex-gap-6 {
+        gap: 6px;
+    }
+    legend, h5 {
+        font-size: 1.3em;
+        margin-bottom: 2px;
+        margin-top: 0;
+        padding-top: 0;
+    }
+    label, .product-options-item  {
+        position: relative;
+        //margin-right: 6px;
+        //font-size: 1.3em;
+        flex: 1;
+        text-align: center;
+        input {
+            position: absolute;
+            left: -999em;
+        }
+        > div {
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: 2px solid $ob-ltgray;
+            transition: all .3s ease;
+            cursor: pointer;
+        }
+        > div:hover {
+            background-color: $ob-orange !important;
+            color: #fff !important;
+        }
+    }
+    a.product-options-item {
+        border-radius: 6px;
+        color: $ob-ltgray;
+        text-decoration: none;
+        border: 2px solid $ob-ltgray;
+        display: inline-block;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    
+    
+    .imChecked {
+        background-color: $ob-orange;
+        color: #fff;
+    }
+    .imNotChecked {
+        background-color: transparent;
+        color: $ob-ltgray;
+    }
+
+    
+}
+
+// .productForm:nth-child(2) {
+//     legend {
+//         display: none;
+//     }
+// }
+
+.productPrice {
+    font-family: $displayText;
+    color: $blue;
+    font-size: 1.6em;
+    width: 85px;
+    position: absolute;
+    right: 5px;
+    text-align: right;
+    top: 14px;
+    @media screen and (min-width: $screen-md) {
+        top: 19px;
+        right: 20px;
+    }
+    
+}
+
+.buyNow {
+    button {
+        //font-size: 1.3em;
+        font-weight: 300;
+        transition: all .4s ease;
+        cursor: pointer;
+        margin-top: 6px;
+        display: block;
+        padding: 6px 8px;
+        border-radius: 6px;
+        width: 100%;
+        color: #fff;
+    }
+    
+    button.addButton {
+        border: 2px solid $teal;
+        background-color: $teal;
+        margin: 0;
+
+        span {
+            display: block;
+        }
+    }
+    button.addButton:hover {
+        background-color: $ob-orange;
+        border-color: $ob-orange;
+    }
+    button.nowButton {
+        border: 2px solid #000;
+        background-color: #000;
+        span {
+            display: block;
+        }
+    }
+    button.nowButton:hover {
+        background-color: $ob-orange;
+        border-color: $ob-orange;
+    }
+}
+
+.singleGallery {
+    img {
+        display: block;
+        border-radius: 6px;
+    }
+}
+
+.variants {
+    margin: 10px 0;
+}
+
+.react-datepicker__input-container {
+    display: flex !important;
+    input {
+        flex: 0 0 49%;
+        border-radius: 6px;
+        border: 2px solid $ob-ltgray;
+        padding: 8px;
+        &:focus-visible {
+            outline: 2px solid $ob-orange;
+        }
+    }
+}
+
+.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {
+    left: -220px !important;
+}
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+    font-weight: bold;
+}
+.react-datepicker__day--disabled, .react-datepicker__month-text--disabled, .react-datepicker__quarter-text--disabled, .react-datepicker__year-text--disabled {
+    font-weight: normal;
+}
+
+.galleryContainer {
+    position: relative;
+    width: 350px;
+    height: 550px;
+    @media screen and (min-width: $screen-md) {
+        height: 720px;
+    }
+    margin-left: auto;
+    margin-right: auto;
+    > div {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+}
+
+.twopersoncart {
+    .galleryContainer {
+        > div:nth-child(1) {
+            z-index: 10;
+        }
+    }
+}
+.fourpersoncart {
+    .galleryContainer {
+        > div:nth-child(2) {
+            z-index: 10;
+        }
+    }
+}
+.sixpersoncart {
+    .galleryContainer {
+        > div:nth-child(3) {
+            z-index: 10;
+        }
+    }
+}
+
+.recommendModal {
+    .modal-dialog {
+        max-width: 350px;
+        margin-top: 0;
+        margin-bottom: 0;
+        a {
+            color: $teal;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+.modal-body {
+    .miniImage {
+        width: 80px;
+        margin-right: 10px;
+    }
+    h3 {
+        padding-top: 0;
+    }
+    p {
+        margin-top: 0;
+    }
+}
+
+
+.noPadding.inside-lg {
+    padding: 0 !important;
+}

@@ -1,0 +1,59 @@
+.about {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    h2 {
+        font-family: $bodyText;
+        color: $blue;
+        padding-left: 10%;
+        padding-right: 10%;
+        span {
+            display: block;
+            width: 70px;
+            margin: 0 auto 20px;
+            .teal {
+                fill: $teal;
+            }
+        }
+    }
+    h3 {
+       color: $teal; 
+    }
+}
+
+.cartRentalImages {
+    position: relative;
+    .CartRentalAbout2, .CartRentalAbout3 {
+        position: absolute;
+        z-index: 2;
+    }
+    .CartRentalAbout2 {
+        left: 0;
+        top: -20px;
+        width: 175px;
+        @media screen and (min-width: $screen-sm) {
+            width: 300px;
+        }
+        @media screen and (min-width: $screen-md) {
+            top: 40px;
+            width: 225px;
+        }
+        @media screen and (min-width: $screen-lg) {
+            top: -20px;
+            width: 300px;
+        }
+    }
+    .CartRentalAbout3 {
+        right: 0;
+        bottom: -30px;
+        width: 125px;
+        @media screen and (min-width: $screen-sm) {
+            width: 200px;
+        }
+        @media screen and (min-width: $screen-md) {
+            width: 175px;
+        }
+        @media screen and (min-width: $screen-lg) {
+            width: 200px;
+        }
+    }
+}
