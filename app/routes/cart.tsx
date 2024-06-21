@@ -89,18 +89,20 @@ export default function Cart() {
   const cartPromise = rootData.cart;
 
   return (
-    <div className="cart">
-      <h1>Cart</h1>
-      <Suspense fallback={<p>Loading cart ...</p>}>
-        <Await
-          resolve={cartPromise}
-          errorElement={<div>An error occurred</div>}
-        >
-          {(cart) => {
-            return <CartMain layout="page" cart={cart} />;
-          }}
-        </Await>
-      </Suspense>
+    <div className="cart header-present">
+      <div className='inside-xl'>
+        <h1>Cart</h1>
+        <Suspense fallback={<p>Loading cart ...</p>}>
+          <Await
+            resolve={cartPromise}
+            errorElement={<div>An error occurred</div>}
+          >
+            {(cart) => {
+              return <CartMain layout="page" cart={cart} />;
+            }}
+          </Await>
+        </Suspense>
+      </div>
     </div>
   );
 }
