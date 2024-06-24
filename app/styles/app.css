@@ -792,6 +792,9 @@ button.cartIcon, a.cartIcon {
 .heroFormContainer p, .heroFormContainer h3 {
   margin-bottom: 0; }
 
+form {
+  max-width: 100% !important; }
+
 .fullHeight {
   height: 100%; }
 
@@ -2209,8 +2212,8 @@ button.reserveButton {
   color: #fff;
   display: inline-block;
   height: 100%;
-  padding: 8px;
-  border-radius: 6px; }
+  border-radius: 6px;
+  transition: background-color .3s ease; }
   button.reserveButton:hover {
     background-color: #de6e4b; }
 

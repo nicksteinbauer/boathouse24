@@ -12,7 +12,7 @@ import Routes from '~/components/Routes';
 import Footerjs from '~/components/Footerjs';
 
 export const meta: MetaFunction = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{title: 'Put-in-Bay Golf Cart Rentals, Put-in-Bay Bike Rentals | Boathouse Cart and Bike Rental'}];
 };
 
 export async function loader({context}: LoaderFunctionArgs) {

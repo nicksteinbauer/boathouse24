@@ -31,6 +31,13 @@
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-scroll": "^1.9.0",
+    "@react-google-maps/api": "^2.18.1",
+    "emailjs": "^4.0.1",
+    "emailjs-com": "^3.2.0",
+    "reactstrap": "^9.1.6",
+    "sweetalert2": "^11.7.2",
+    "validator": "^13.9.0",
+    "react-recaptcha": "^2.3.10",
     "sass": "^1.77.5"
   },
   "devDependencies": {

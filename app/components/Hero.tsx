@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
             <div className={`heroOverlay`}>
                 <div className={`topOverlay`} />
                 <div className="topBanner">
-                    Closest reservable Put-in-Bay Golf Cart Rental to the Jet Express dock <Link to="/location">Location</Link>
+                    Closest reservable Put-in-Bay Golf Cart Rental to the Jet Express dock <Link to="/pages/location">Location</Link>
                 </div>
                 <div className={`topLogo`}>
                     <TopLogo />

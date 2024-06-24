@@ -62,6 +62,7 @@
         "npm:@netlify/edge-functions@^2.2.0",
         "npm:@netlify/remix-edge-adapter@^3.1.0",
         "npm:@netlify/remix-runtime@^2.1.0",
+        "npm:@react-google-maps/api@^2.18.1",
         "npm:@remix-run/dev@^2.2.0",
         "npm:@remix-run/eslint-config@^2.2.0",
         "npm:@remix-run/react@^2.2.0",
@@ -75,6 +76,8 @@
         "npm:@types/react-dom@^18.2.7",
         "npm:@types/react-scroll@^1.8.10",
         "npm:@types/react@^18.2.22",
+        "npm:emailjs-com@^3.2.0",
+        "npm:emailjs@^4.0.1",
         "npm:eslint-plugin-hydrogen@0.12.2",
         "npm:eslint@^8.20.0",
         "npm:graphql-tag@^2.12.6",
@@ -85,10 +88,14 @@
         "npm:react-bootstrap@^2.10.2",
         "npm:react-datepicker@^4.8.0",
         "npm:react-dom@^18.2.0",
+        "npm:react-recaptcha@^2.3.10",
         "npm:react-scroll@^1.9.0",
         "npm:react@^18.2.0",
+        "npm:reactstrap@^9.1.6",
         "npm:sass@^1.77.5",
-        "npm:typescript@^5.2.2"
+        "npm:sweetalert2@^11.7.2",
+        "npm:typescript@^5.2.2",
+        "npm:validator@^13.9.0"
       ]
     }
   }

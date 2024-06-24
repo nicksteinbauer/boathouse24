@@ -1,5 +1,6 @@
 import {json, type LoaderFunctionArgs} from '@netlify/remix-runtime';
 import {useLoaderData, type MetaFunction} from '@remix-run/react';
+import About from '~/components/About';
 import Footerjs from '~/components/Footerjs';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
@@ -7,15 +8,9 @@ export const meta: MetaFunction<typeof loader> = ({data}) => {
 };
 
 export async function loader({params, context}: LoaderFunctionArgs) {
-  if (!params.handle) {
-    throw new Error('Missing page handle');
-  }
 
-  const {page} = await context.storefront.query(PAGE_QUERY, {
-    variables: {
-      handle: params.handle,
-    },
-  });
+  const {page} = await context.storefront.query(PAGE_QUERY);
+
 
   if (!page) {
     throw new Response('Not Found', {status: 404});
@@ -30,26 +25,20 @@ export default function Page() {
   return (
     <>
       <div className="page header-present">
-        <div className="inside-xl">
-          <header>
-            <h1>{page.title}</h1>
-          </header>
-          <main dangerouslySetInnerHTML={{__html: page.body}} />
-        </div>
+        <About />
       </div>
-    <Footerjs />
+      <Footerjs />
     </>
   );
 }
 
 const PAGE_QUERY = `#graphql
-  query Page(
+  query PageAbout(
     $language: LanguageCode,
-    $country: CountryCode,
-    $handle: String!
+    $country: CountryCode
   )
   @inContext(language: $language, country: $country) {
-    page(handle: $handle) {
+    page(handle: "about") {
       id
       title
       body

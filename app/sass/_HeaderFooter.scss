@@ -51,8 +51,9 @@ button.reserveButton {
     color: #fff;
     display: inline-block;
     height: 100%;
-    padding: 8px;
+    //padding: 8px;
     border-radius: 6px;
+    transition: background-color .3s ease;
     &:hover {
         background-color: $ob-orange;
     }

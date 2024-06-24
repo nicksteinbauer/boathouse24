@@ -5,9 +5,10 @@ import {CartForm} from '@shopify/hydrogen';
 import {json, type ActionFunctionArgs} from '@netlify/remix-runtime';
 import {CartMain} from '~/components/Cart';
 import {useRootLoaderData} from '~/root';
+import Footerjs from '~/components/Footerjs';
 
 export const meta: MetaFunction = () => {
-  return [{title: `Hydrogen | Cart`}];
+  return [{title: 'Cart | Boathouse Cart and Bike Rental'}];
 };
 
 export async function action({request, context}: ActionFunctionArgs) {
@@ -89,20 +90,23 @@ export default function Cart() {
   const cartPromise = rootData.cart;
 
   return (
-    <div className="cart header-present">
-      <div className='inside-xl'>
-        <h1>Cart</h1>
-        <Suspense fallback={<p>Loading cart ...</p>}>
-          <Await
-            resolve={cartPromise}
-            errorElement={<div>An error occurred</div>}
-          >
-            {(cart) => {
-              return <CartMain layout="page" cart={cart} />;
-            }}
-          </Await>
-        </Suspense>
+    <>
+      <div className="cart header-present">
+        <div className='inside-xl'>
+          <h1>Cart</h1>
+          <Suspense fallback={<p>Loading cart ...</p>}>
+            <Await
+              resolve={cartPromise}
+              errorElement={<div>An error occurred</div>}
+            >
+              {(cart) => {
+                return <CartMain layout="page" cart={cart} />;
+              }}
+            </Await>
+          </Suspense>
+        </div>
       </div>
-    </div>
+      <Footerjs />
+    </>
   );
 }
