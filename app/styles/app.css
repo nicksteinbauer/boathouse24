@@ -815,6 +815,10 @@ input.flex1 {
 .discount.button:hover {
   background-color: #de6e4b; }
 
+.strikethrough {
+  color: #ccc;
+  text-decoration: line-through; }
+
 .media {
   width: 100%; }
 

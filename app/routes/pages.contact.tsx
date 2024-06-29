@@ -2,6 +2,7 @@ import {json, type LoaderFunctionArgs} from '@netlify/remix-runtime';
 import {useLoaderData, type MetaFunction} from '@remix-run/react';
 import ContactForm from '~/components/ContactForm';
 import Footerjs from '~/components/Footerjs';
+import { useEffect } from 'react';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
   return [{title: `${data?.page.title ?? ''} | Boathouse Cart and Bike Rental`}];
@@ -21,6 +22,16 @@ export async function loader({params, context}: LoaderFunctionArgs) {
 
 export default function Page() {
   const {page} = useLoaderData<typeof loader>();
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
+    script.async = false;
+    script.defer = false;
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 
   return (
     <>

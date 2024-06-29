@@ -244,21 +244,28 @@ function CartLinePrice({
 }) {
   if (!line?.cost?.amountPerQuantity || !line?.cost?.totalAmount) return null;
 
-  const moneyV2 =
-    priceType === 'regular'
-      ? line.cost.totalAmount
-      : line.cost.compareAtAmountPerQuantity;
+  const moneyV2 = line.cost.totalAmount;
+  const moneyV3 = line.cost.amountPerQuantity;
 
   if (moneyV2 == null) {
     return null;
   }
 
+  const amountsAreEqual = moneyV2.amount === moneyV3.amount && moneyV2.currencyCode === moneyV3.currencyCode;
+
   return (
     <div className="flex-vertical">
-      <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />
+      <div className="always-flex gap5">
+        {!amountsAreEqual && (
+          <Money className="strikethrough" withoutTrailingZeros {...passthroughProps} data={moneyV3} />
+        )}
+        <Money withoutTrailingZeros {...passthroughProps} data={moneyV2} />
+      </div>
     </div>
   );
 }
+
+
 
 export function CartEmpty({
   hidden = false,
