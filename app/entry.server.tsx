@@ -78,6 +78,10 @@ export default async function handleRequest(
       'https://fonts.gstatic.com/',
       'https://cdnjs.cloudflare.com/',
     ],
+    frameSrc: [
+      "'self'",
+      'https://www.google.com/',
+    ],
   });
 
   const body = await renderToReadableStream(
