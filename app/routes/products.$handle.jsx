@@ -8,7 +8,7 @@ import Footerjs from '~/components/Footerjs';
 import Modal from 'react-bootstrap/Modal';
 
 export const meta = ({ data }) => {
-  return [{ title: `Hydrogen | ${data?.product.title ?? ''}` }];
+  return [{ title: `${data?.product.title ?? ''} | Boathouse Cart and Bike Rental'` }];
 };
 
 export async function loader({ params, request, context }) {
