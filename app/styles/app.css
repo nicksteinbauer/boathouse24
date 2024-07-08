@@ -921,6 +921,10 @@ input.flex1 {
   border-radius: 6px;
   width: 100%;
   color: #fff; }
+.buyNow button.addButton[disabled] {
+  opacity: .8;
+  background-color: #ccc;
+  border: 2px solid #ccc; }
 .buyNow button.addButton {
   border: 2px solid #1c92a7;
   background-color: #1c92a7;
@@ -930,6 +934,11 @@ input.flex1 {
 .buyNow button.addButton:hover {
   background-color: #de6e4b;
   border-color: #de6e4b; }
+.buyNow button.addButton[disabled]:hover {
+  opacity: .8;
+  background-color: #ccc;
+  border: 2px solid #ccc;
+  cursor: not-allowed; }
 .buyNow button.nowButton {
   border: 2px solid #000;
   background-color: #000; }

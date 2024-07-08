@@ -176,15 +176,27 @@ function ProductPrice({ selectedVariant }) {
 function ProductForm({ product, selectedVariant, variants }) {
     const {
         relatedtitle1,
-        relatedlink1
+        relatedlink1,
+        expiration
     } = product;
     const rtitle1 = relatedtitle1?.value ? relatedtitle1?.value : null;
     const rlink1 = relatedlink1?.value ? relatedlink1?.value : null;
+    const expirationDate = expiration?.value ? expiration?.value : null;
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const todaysDate = new Date();
+
+    const now = new Intl.DateTimeFormat('en-CA', {
+      month: '2-digit',
+      day: '2-digit',
+      year: 'numeric'
+    }).format(todaysDate).replace(",", "");
+    
+    const expired = now >= expirationDate;
   return (
     <>
         <div className="product-form">
@@ -196,7 +208,7 @@ function ProductForm({ product, selectedVariant, variants }) {
             {({ option }) => <ProductOptions key={option.name} option={option} />}
         </VariantSelector>
         <AddToCartButton
-            disabled={!selectedVariant || !selectedVariant.availableForSale}
+            disabled={!selectedVariant || !selectedVariant.availableForSale || expired}
             onClick={handleShow}
             lines={
             selectedVariant
@@ -209,7 +221,7 @@ function ProductForm({ product, selectedVariant, variants }) {
                 : []
             }
         >
-            {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
+            {selectedVariant?.availableForSale && !expired ? 'Add to cart' : 'Sold out'}
         </AddToCartButton>
         </div>
         <Modal show={show} onHide={handleClose} className="recommendModal">
@@ -337,6 +349,9 @@ const PRODUCT_FRAGMENT = `#graphql
       value
     }
     relatedlink1: metafield(namespace: "custom", key: "related_link_1") {
+      value
+    }
+    expiration: metafield(namespace: "custom", key: "expiration_date") {
       value
     }
     options {

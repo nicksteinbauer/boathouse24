@@ -145,7 +145,11 @@
         width: 100%;
         color: #fff;
     }
-    
+    button.addButton[disabled] {
+        opacity: .8;
+        background-color: #ccc;
+        border: 2px solid #ccc;
+    }
     button.addButton {
         border: 2px solid $teal;
         background-color: $teal;
@@ -158,6 +162,12 @@
     button.addButton:hover {
         background-color: $ob-orange;
         border-color: $ob-orange;
+    }
+    button.addButton[disabled]:hover {
+        opacity: .8;
+        background-color: #ccc;
+        border: 2px solid #ccc;
+        cursor: not-allowed;
     }
     button.nowButton {
         border: 2px solid #000;
