@@ -1016,7 +1016,8 @@ input.flex1 {
   margin-top: 0; }
 
 .noPadding.inside-lg {
-  padding: 0 !important; }
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
 
 #headlessui-portal-root .onClose {
   height: 100%; }

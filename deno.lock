@@ -82,6 +82,8 @@
         "npm:@types/react-dom@^18.2.7",
         "npm:@types/react-scroll@^1.8.10",
         "npm:@types/react@^18.2.22",
+        "npm:date-fns-tz@^1.1.5",
+        "npm:date-fns@^3.6.0",
         "npm:emailjs-com@^3.2.0",
         "npm:emailjs@^4.0.1",
         "npm:eslint-plugin-hydrogen@0.12.2",

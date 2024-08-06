@@ -7,6 +7,14 @@ import { getVariantUrl } from '~/utils';
 import Footerjs from '~/components/Footerjs';
 import Modal from 'react-bootstrap/Modal';
 
+import { format, parseISO } from 'date-fns';
+
+// Declare formatDate function at the top level
+const formatDate = (dateString) => {
+  const date = parseISO(dateString);
+  return format(date, 'yyyy-MM-dd HH:mm'); // Use 'HH' for 24-hour format and remove 'aaaa'
+};
+
 export const meta = ({ data }) => {
   return [{ title: `${data?.product.title ?? ''} | Boathouse Cart and Bike Rental'` }];
 };
@@ -177,11 +185,14 @@ function ProductForm({ product, selectedVariant, variants }) {
     const {
         relatedtitle1,
         relatedlink1,
-        expiration
+        expiration,
+        newexpiration
     } = product;
     const rtitle1 = relatedtitle1?.value ? relatedtitle1?.value : null;
     const rlink1 = relatedlink1?.value ? relatedlink1?.value : null;
     const expirationDate = expiration?.value ? expiration?.value : null;
+    const dateString = newexpiration?.value ? newexpiration?.value : null;
+    const formattedDate = formatDate(dateString);
 
     const [show, setShow] = useState(false);
 
@@ -193,13 +204,17 @@ function ProductForm({ product, selectedVariant, variants }) {
     const now = new Intl.DateTimeFormat('en-CA', {
       month: '2-digit',
       day: '2-digit',
-      year: 'numeric'
+      year: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit', // Optionally include minutes
+      hourCycle: 'h23'  // 24-hour format
     }).format(todaysDate).replace(",", "");
     
-    const expired = now >= expirationDate;
+    const expired = now >= formattedDate;
   return (
     <>
         <div className="product-form">
+          
         <VariantSelector
             handle={product.handle}
             options={product.options}
@@ -352,6 +367,9 @@ const PRODUCT_FRAGMENT = `#graphql
       value
     }
     expiration: metafield(namespace: "custom", key: "expiration_date") {
+      value
+    }
+    newexpiration: metafield(namespace: "custom", key: "new_expiration_date") {
       value
     }
     options {
