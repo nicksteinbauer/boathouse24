@@ -3,6 +3,7 @@ import React from "react";
 
 const DatePicker = require('react-datepicker');
 //import "react-datepicker/dist/react-datepicker.css";
+import { addDays } from 'date-fns'; // Import addDays
 
 
 class MainForm extends React.Component {
@@ -844,7 +845,8 @@ class MainForm extends React.Component {
   }
 
   render() {
-    
+    const tomorrow = addDays(new Date(), 1); // Get tomorrow's date
+
     return (
       <form onSubmit={this.handleSubmit} className='flex-sm heroForm'>
         <div className='forty inputContainer'>
@@ -853,10 +855,10 @@ class MainForm extends React.Component {
             <DatePicker.default
               type="text"
               name="date"
-              //dateFormat="dd/MM/yyyy"
               selected={this.state.date}
               onChange={this.dateChange}
               placeholderText="Pick Rental Date"
+              minDate={tomorrow} // Set minDate to tomorrow's date
               excludeDates={[
                 new Date('3/31/2024'),new Date('4/1/2024'),new Date('4/2/2024'),new Date('4/3/2024'),new Date('4/4/2024'),new Date('4/5/2024'),new Date('4/6/2024'),new Date('4/7/2024'),new Date('4/8/2024'),new Date('4/9/2024'),new Date('4/10/2024'),new Date('4/11/2024'),new Date('4/12/2024'),new Date('4/13/2024'),new Date('4/14/2024'),new Date('4/15/2024'),new Date('4/16/2024'),new Date('4/17/2024'),new Date('4/18/2024'),new Date('4/19/2024'),new Date('4/20/2024'),new Date('4/21/2024'),new Date('4/22/2024'),new Date('4/23/2024'),new Date('4/24/2024'),new Date('4/25/2024'),new Date('4/26/2024'),new Date('4/27/2024'),new Date('4/28/2024'),new Date('4/29/2024'),new Date('4/30/2024'),
                 new Date('5/1/2024'),new Date('5/2/2024'),new Date('5/6/2024'),new Date('5/7/2024'),new Date('5/8/2024'),new Date('5/9/2024'),new Date('5/13/2024'),new Date('5/14/2024'),new Date('5/15/2024'),new Date('5/16/2024'),
