@@ -36,9 +36,9 @@ strong {
 }
 
 h1 {
-  font-size: 2em  ;
+  font-size: 2.5em !important;
   @media screen and (min-width: $screen-md) {
-    font-size: 3.0em  ;
+    font-size: 3.5em !important;
   }
 }
 

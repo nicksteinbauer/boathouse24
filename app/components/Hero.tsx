@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
                 </div>
                 <div className={`hero flex-vertical`}>
                     <div className={`text-center`}>
-                        <h1 className={`h1`}>Rent Golf Carts on Put-in-Bay<br/>Rent Bikes on Put-in-Bay</h1>
+                        <h1 className={`h1`}>Rent Golf Carts on Put-in-Bay</h1>
                         <div className={`inside-sm text-center heroFormContainer`}>
                             <MainForm />
                             <p className="text-center bright">

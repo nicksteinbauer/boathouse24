@@ -12,8 +12,13 @@ import Routes from '~/components/Routes';
 import Footerjs from '~/components/Footerjs';
 
 export const meta: MetaFunction = () => {
-  return [{title: 'Put-in-Bay Golf Cart Rentals, Put-in-Bay Bike Rentals | Boathouse Cart and Bike Rental'}];
+  return [
+    { title: 'Put-in-Bay Golf Cart Rental | Boathouse Cart and Bike Rental' },
+    { name: 'description', content: 'Boathouse Cart and Bike Rental offers convenient and affordable Put-in-Bay golf cart rentals. Explore South Bass Island with our 2, 4, and 6 passenger golf carts.' },
+    { name: 'keywords', content: 'put in bay golf cart rental, Put-in-Bay bike rental, South Bass Island, golf cart rental, bike rental, Boathouse Cart and Bike Rental' }
+  ];
 };
+
 
 export async function loader({context}: LoaderFunctionArgs) {
   const {storefront} = context;
@@ -30,6 +35,10 @@ export default function Homepage() {
     <div className="home">
       <Hero />
       <div className="imHomeUnder">
+        <section className="about inside-md text-center">
+          <p>Welcome to Boathouse Cart and Bike Rental, your premier destination for Put-in-Bay golf cart rentals! We offer a variety of golf carts to suit your needs, whether you're exploring for a few hours or staying for a few days. Our fleet includes both gasoline and electric carts, available in 2, 4, and 6 passenger options.</p>
+          <p>Rent your golf cart online or visit our rental booth on Hartford Avenue, conveniently located near the Jet Express dock. Enjoy competitive rates and the flexibility of hourly or full-day rentals. Must be at least 18 with a valid driver's license to rent.</p>
+        </section>  
         <About />
         <Routes />
         <Footerjs />

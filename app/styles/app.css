@@ -688,10 +688,10 @@ strong {
   font-weight: 700; }
 
 h1 {
-  font-size: 2em; }
+  font-size: 2.5em !important; }
   @media screen and (min-width: 992px) {
     h1 {
-      font-size: 3em; } }
+      font-size: 3.5em !important; } }
 
 h2 {
   font-size: 1.8em; }
