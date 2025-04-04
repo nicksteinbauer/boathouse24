@@ -34,7 +34,9 @@
     .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after {
         left: auto !important;
     }
-    
+    .react-datepicker-popper {
+        z-index: 10;
+    }
 }
 
 .inputButton {

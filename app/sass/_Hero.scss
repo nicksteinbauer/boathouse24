@@ -55,6 +55,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffffff', e
         @media screen and (min-width: $screen-md) {
             margin-bottom: 20px;
         }
+        
+    }
+    .h1.noMargin {
+      margin-bottom: 0;
+    }
+    h1 {
+      font-size: 2.5em !important;
+      @media screen and (min-width: $screen-md) {
+        font-size: 3.5em !important;
+      }
     }
 }
 form.heroForm {
@@ -926,4 +936,81 @@ form.heroForm {
   width: 1em;
   height: 1em;
   vertical-align: -0.125em;
+}
+
+.featured-products {
+  
+  .productImageContainer {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    img {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  h2 {
+    font-family: $bodyText;
+    color: $blue;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 20px;
+    span {
+        display: block;
+        width: 70px;
+        margin: 0 auto 20px;
+        .teal {
+            fill: $teal;
+        }
+    }
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      background-color: #f7f7f7;
+      padding: 10px;
+      h4 {
+        border-bottom: 2px solid $teal;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        small {
+          font-family: $bodyText;
+          text-transform: none;
+          font-size: 80%;
+          @media screen and (min-width: $screen-md) {
+            font-size: 60%;
+          }
+          .smaller {
+            font-size: 83%;
+          }
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+      a:link, a:active, a:visited {
+        color: $blue;
+      }
+    }
+  }
+}
+
+.aboveAbout {
+  background-color: #f7f7f7;
+}
+
+.product-item {
+  h3 {
+    font-size: 1.2em;
+  }
+  p {
+    color: #000;
+    font-size: .85em;
+  }
+}
+
+p.larger {
+  font-size: 1.2em;
 }

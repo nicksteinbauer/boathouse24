@@ -9,6 +9,8 @@ import Modal from 'react-bootstrap/Modal';
 
 import { format, parseISO } from 'date-fns';
 
+import {RichTextRenderer} from '@novatize-mattheri/shopify-richtext-renderer';
+
 // Declare formatDate function at the top level
 const formatDate = (dateString) => {
   const date = parseISO(dateString);
@@ -101,6 +103,14 @@ export default function Product() {
             variants={variants}
           />
         </section>
+        {product.extraDescription && (
+          <section className="inside-md">
+            <RichTextRenderer
+              data={product.extraDescription.value}
+              h3={{ as: 'h3' }}
+            />
+          </section>
+        )}
       </div>
       <Footerjs />
     </>
@@ -156,6 +166,7 @@ function ProductMain({ selectedVariant, product, variants }) {
             )}
           </Await>
         </Suspense>
+        
       </div>
     </div>
   );
@@ -240,23 +251,21 @@ function ProductForm({ product, selectedVariant, variants }) {
         </AddToCartButton>
         </div>
         <Modal show={show} onHide={handleClose} className="recommendModal">
-            <Modal.Header closeButton>
+          <Modal.Header closeButton>
             <Modal.Title>Product added to Cart</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
+          </Modal.Header>
+          <Modal.Body>
             {rlink1 !== null && (
-                <>
-                <p>Would you like to rent an additional day? Click on the product below.</p>
-                <Link to={`/products/${rlink1}`} onClick={handleClose} className="always-flex">
-                <img id="gid://shopify/ImageSource/33484292096311" alt="Boathouse Cart Rental 2 Person Cart" loading="lazy" className="media miniImage" src="https://cdn.shopify.com/s/files/1/0717/0375/7111/files/BoathouseCartRental2Person.jpg?v=1683905041" decoding="async"></img>
-                <h3 className="flex-vertical"><span>{rtitle1}</span></h3>
-                </Link>
-                </>
+              <>
+              <p>Would you like to rent an additional day? Click on the product below.</p>
+              <Link to={`/products/${rlink1}`} onClick={handleClose} className="always-flex">
+              <img id="gid://shopify/ImageSource/33484292096311" alt="Boathouse Cart Rental 2 Person Cart" loading="lazy" className="media miniImage" src="https://cdn.shopify.com/s/files/1/0717/0375/7111/files/BoathouseCartRental2Person.jpg?v=1683905041" decoding="async"></img>
+              <h3 className="flex-vertical"><span>{rtitle1}</span></h3>
+              </Link>
+              </>
             )}
-            
             <Link className="button" to="/cart">View Cart</Link>
-            
-            </Modal.Body>
+          </Modal.Body>
         </Modal>
     </>
   );
@@ -370,6 +379,9 @@ const PRODUCT_FRAGMENT = `#graphql
       value
     }
     newexpiration: metafield(namespace: "custom", key: "new_expiration_date") {
+      value
+    }
+    extraDescription: metafield(key: "extra_description", namespace: "custom") {
       value
     }
     options {

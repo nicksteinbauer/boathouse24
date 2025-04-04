@@ -9,12 +9,13 @@
 .buybox {
     
     h1 {
-        font-size: 1.7em  ;
+        font-size: 1.7em  !important;
         @media screen and (min-width: $screen-md) {
-            font-size: 2.0em  ;
+            font-size: 2.0em  !important;
         }
         position: relative;
         padding-bottom: 9px;
+        
         &::after {
             content: '';
             position: absolute;
@@ -220,10 +221,10 @@
 .galleryContainer {
     position: relative;
     width: 350px;
-    height: 550px;
-    @media screen and (min-width: $screen-md) {
-        height: 720px;
-    }
+    // height: 550px;
+    // @media screen and (min-width: $screen-md) {
+    //     height: 720px;
+    // }
     margin-left: auto;
     margin-right: auto;
     > div {
