@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
             <div className={`heroOverlay`}>
                 <div className={`topOverlay`} />
                 <div className="topBanner">
-                    Closest reservable Put-in-Bay Golf Cart Rental to the Jet Express dock <Link to="/pages/location">Location</Link>
+                    Closest reservable Put in Bay Golf Cart Rental to the Jet Express dock <Link to="/pages/location">Location</Link>
                 </div>
                 <div className={`topLogo`}>
                     <TopLogo />
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
                         <div className={`inside-sm text-center heroFormContainer`}>
                             <MainForm />
                             <p className="text-center bright">
-                                Rent your golf cart overnight for multiple days.<br />
+                                Rent your Put in Bay golf cart rental overnight for multiple days.<br />
                                 The more days you reserve, the more discount you receive.
                             </p>
                         </div>
