@@ -15,7 +15,7 @@ import {RichTextRenderer} from '@novatize-mattheri/shopify-richtext-renderer';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'Put-in-Bay Golf Cart Rental | Boathouse Cart and Bike Rental' },
+    { title: 'Put in Bay Golf Cart Rental | Boathouse Cart and Bike Rental' },
     { name: 'description', content: 'Boathouse Cart and Bike Rental offers convenient and affordable Put-in-Bay golf cart rentals. Explore South Bass Island with our 2, 4, and 6 passenger golf carts.' },
     { name: 'keywords', content: 'put in bay golf cart rental, Put-in-Bay bike rental, South Bass Island, golf cart rental, bike rental, Boathouse Cart and Bike Rental' }
   ];

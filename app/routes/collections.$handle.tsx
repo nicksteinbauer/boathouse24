@@ -10,7 +10,7 @@ import type {ProductItemFragment} from 'storefrontapi.generated';
 import {useVariantUrl} from '~/utils';
 
 export const meta: MetaFunction<typeof loader> = ({data}) => {
-  return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
+  return [{title: `Put in Bay Golf Cart Rental | ${data?.collection.title ?? ''} Collection`}];
 };
 
 export async function loader({request, params, context}: LoaderFunctionArgs) {
@@ -40,9 +40,11 @@ export default function Collection() {
   const {collection} = useLoaderData<typeof loader>();
 
   return (
-    <div className="collection">
+    <section className="products header-present">
+      <div className="inside-xl">
       <h1>{collection.title}</h1>
       <p className="collection-description">{collection.description}</p>
+      </div>
       <Pagination connection={collection.products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
@@ -51,28 +53,32 @@ export default function Collection() {
             </PreviousLink>
             <ProductsGrid products={nodes} />
             <br />
+            <div className="inside-xl">
             <NextLink>
               {isLoading ? 'Loading...' : <span>Load more ↓</span>}
             </NextLink>
+            </div>
           </>
         )}
       </Pagination>
-    </div>
+    </section>
   );
 }
 
 function ProductsGrid({products}: {products: ProductItemFragment[]}) {
   return (
-    <div className="products-grid">
-      {products.map((product, index) => {
-        return (
-          <ProductItem
-            key={product.id}
-            product={product}
-            loading={index < 8 ? 'eager' : undefined}
-          />
-        );
-      })}
+    <div className="inside-xl">
+      <div className="products-grid">
+        {products.map((product, index) => {
+          return (
+            <ProductItem
+              key={product.id}
+              product={product}
+              loading={index < 8 ? 'eager' : undefined}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
