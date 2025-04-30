@@ -18,7 +18,7 @@ const formatDate = (dateString) => {
 };
 
 export const meta = ({ data }) => {
-  return [{ title: `${data?.product.title ?? ''} | Boathouse Cart and Bike Rental'` }];
+  return [{ title: `${data?.product.title ?? ''} | Put in Bay Golf Cart Rental` }];
 };
 
 export async function loader({ params, request, context }) {
