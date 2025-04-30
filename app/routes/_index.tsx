@@ -58,7 +58,7 @@ export default function Homepage() {
                 width: number;
                 height: number;
               };
-              extraDescription?: string;
+              extraDescriptionExcerpt?: string;
               priceRange: {
                 minVariantPrice: {
                   amount: string;
@@ -91,9 +91,9 @@ export default function Homepage() {
                         <div className="smaller">Starts at</div> <Money data={product.priceRange.minVariantPrice} />
                       </small>
                     </h4>
-                    {product.extraDescription && (
+                    {product.extraDescriptionExcerpt && (
                       <RichTextRenderer
-                        data={product.extraDescription.value}
+                        data={product.extraDescriptionExcerpt.value}
                         h3={{ as: 'h3' }}
                       />
                     )}
@@ -157,7 +157,7 @@ const HOME_QUERY = `#graphql
             newexpiration: metafield(namespace: "custom", key: "new_expiration_date") {
               value
             }
-            extraDescription: metafield(key: "extra_description", namespace: "custom") {
+            extraDescriptionExcerpt: metafield(key: "extra_description_excerpt", namespace: "custom") {
               value
             }
           }
