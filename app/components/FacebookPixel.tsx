@@ -1,34 +1,34 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
-function FacebookPixel() {
+declare global {
+  interface Window {
+    fbq?: (...args: any[]) => void;
+    _fbq?: any;
+  }
+}
+
+function FacebookPixel(): null {
   useEffect(() => {
     // Initialize Facebook Pixel
-    // eslint-disable-next-line no-unused-expressions
-    !(function (f, b, e, v, n, t, s) {
+    (function (f: any, b: Document, e: string, v: string, n?: any, t?: HTMLScriptElement, s?: Node | null) {
       if (f.fbq) return;
-      n = f.fbq = function () {
-        n.callMethod
-          ? n.callMethod.apply(n, arguments)
-          : n.queue.push(arguments);
+      n = f.fbq = function (...args: any[]) {
+        n.callMethod ? n.callMethod.apply(n, args) : n.queue.push(args);
       };
       if (!f._fbq) f._fbq = n;
       n.push = n;
-      n.loaded = !0;
+      n.loaded = true;
       n.version = '2.0';
       n.queue = [];
-      t = b.createElement(e);
-      t.async = !0;
+      t = b.createElement(e) as HTMLScriptElement;
+      t.async = true;
       t.src = v;
       s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s);
-    })(
-      window,
-      document,
-      'script',
-      'https://connect.facebook.net/en_US/fbevents.js',
-    );
-    // eslint-disable-next-line no-undef
-    fbq('init', '631720560648719'); // Replace 'YOUR_PIXEL_ID' with your actual Pixel ID
+      s?.parentNode?.insertBefore(t, s);
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    window.fbq?.('init', '631720560648719'); // Replace with your actual Pixel ID
+    window.fbq?.('track', 'PageView');
   }, []);
 
   return null;
