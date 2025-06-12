@@ -27,7 +27,7 @@ function FacebookPixel(): null {
       s?.parentNode?.insertBefore(t, s);
     })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-    window.fbq?.('init', '631720560648719'); // Replace with your actual Pixel ID
+    window.fbq?.('init', '1085296333446639'); // Replace with your actual Pixel ID
     window.fbq?.('track', 'PageView');
   }, []);
 
