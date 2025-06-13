@@ -135,18 +135,6 @@ function HeaderCtas({
   );
 }
 
-// function HeaderMenuMobileToggle() {
-//   return (
-//     <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
-//       <h3>☰</h3>
-//     </a>
-//   );
-// }
-
-// function SearchToggle() {
-//   return <a href="#search-aside">Search</a>;
-// }
-
 function CartBadge({count}: {count: number}) {
   return <Link to='/cart' className="cartIcon flex-vertical"><IconBag /><div className='text-white bg-black tbd flex-vertical'>{count}</div></Link>;
 }

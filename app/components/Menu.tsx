@@ -19,7 +19,7 @@ export class Menu extends Component {
                     </ScrollLink>
                 </li>
                 <li className="flex-vertical home">
-                    <Link to="/pages/location">Location</Link>
+                    <Link reloadDocument to="/pages/location">Location</Link>
                 </li>
                 <li className="flex-vertical home">
                     <Link to="/pages/contact">Contact Us</Link>
