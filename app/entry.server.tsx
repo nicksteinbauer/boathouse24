@@ -26,6 +26,7 @@ export default async function handleRequest(
       'ws://localhost:3001/',
       'https://maps.googleapis.com/',
       'https://api.emailjs.com/',
+      'https://www.facebook.com/',
     ],
     imgSrc: [
       "'self'",
