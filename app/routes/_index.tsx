@@ -14,12 +14,34 @@ import { PinLogo } from '~/components/PinLogo';
 import {RichTextRenderer} from '@novatize-mattheri/shopify-richtext-renderer';
 
 export const meta: MetaFunction = () => {
+  const fallbackOgImage = 'https://cdn.shopify.com/s/files/1/0717/0375/7111/files/CartRentalOGSharing.jpg?v=1752592075'; // <-- replace with your hosted OG image URL
+
   return [
     { title: 'Put in Bay Golf Cart Rental | Boathouse Cart and Bike Rental' },
-    { name: 'description', content: 'Boathouse Cart and Bike Rental offers convenient and affordable Put-in-Bay golf cart rentals. Explore South Bass Island with our 2, 4, and 6 passenger golf carts.' },
-    { name: 'keywords', content: 'put in bay golf cart rental, Put-in-Bay bike rental, South Bass Island, golf cart rental, bike rental, Boathouse Cart and Bike Rental' }
+    {
+      name: 'description',
+      content:
+        'Boathouse Cart and Bike Rental offers convenient and affordable Put-in-Bay golf cart rentals. Explore South Bass Island with our 2, 4, and 6 passenger golf carts.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'put in bay golf cart rental, Put-in-Bay bike rental, South Bass Island, golf cart rental, bike rental, Boathouse Cart and Bike Rental',
+    },
+    {
+      property: 'og:image',
+      content: fallbackOgImage,
+    },
+    { property: 'og:title', content: 'Put in Bay Golf Cart Rental' },
+    {
+      property: 'og:description',
+      content:
+        'Rent 2, 4, or 6 passenger golf carts at Put-in-Bay from Boathouse Cart and Bike Rental. Reserve online today!',
+    },
+    { property: 'og:type', content: 'website' },
   ];
 };
+
 
 /**
  * @param {LoaderFunctionArgs}

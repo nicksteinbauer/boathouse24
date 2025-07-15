@@ -4,10 +4,17 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import Footerjs from '~/components/Footerjs';
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const title = `${data?.page.title ?? ''} | Boathouse Cart and Bike Rental`;
+  const description = data?.page.seo?.description ?? 'Rent golf carts at Put-in-Bay from Boathouse Cart and Bike Rental.';
+  const fallbackOgImage = 'https://cdn.shopify.com/s/files/1/0717/0375/7111/files/CartRentalOGSharing.jpg?v=1752592075'; // Replace with your actual hosted OG image URL
+
   return [
-    {
-      title: `${data?.page.title ?? ''} | Boathouse Cart and Bike Rental`,
-    },
+    { title },
+    { name: 'description', content: description },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:image', content: fallbackOgImage },
+    { property: 'og:type', content: 'website' },
   ];
 };
 
