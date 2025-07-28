@@ -122,11 +122,11 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
-        <FacebookPixel />
       </head>
       <body>
         <Layout {...data}>
           <Outlet />
+          <FacebookPixel />
         </Layout>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
