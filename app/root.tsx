@@ -1,6 +1,4 @@
 import {useNonce} from '@shopify/hydrogen';
-import { useEffect } from 'react';
-import ReactGA from 'react-ga4';
 import {
   defer,
   type SerializeFrom,
@@ -115,9 +113,6 @@ export default function App() {
   const data = useLoaderData<typeof loader>();
 
   
-  useEffect(() => {
-    ReactGA.initialize('G-HWLR8ZMNVN'); // For v2.x, this is correct
-  }, []);
 
 
   return (
