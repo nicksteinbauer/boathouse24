@@ -116,12 +116,9 @@ export default function App() {
 
   
   useEffect(() => {
-    ReactGA.initialize([
-      {
-        trackingId: 'G-HWLR8ZMNVN',
-      },
-    ]);
+    ReactGA.initialize('G-HWLR8ZMNVN'); // For v2.x, this is correct
   }, []);
+
 
   return (
     <html lang="en">
