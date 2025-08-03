@@ -23,6 +23,8 @@ import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
 import {Layout} from '~/components/Layout';
 import FacebookPixel from './components/FacebookPixel';
+import GoogleAnalytics from './components/GoogleAnalytics';
+
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -127,6 +129,7 @@ export default function App() {
         <Layout {...data}>
           <Outlet />
           <FacebookPixel />
+          <GoogleAnalytics />
         </Layout>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
