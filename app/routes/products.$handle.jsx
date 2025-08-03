@@ -18,23 +18,26 @@ const formatDate = (dateString) => {
 };
 
 export const meta = ({ data }) => {
-  const title = `${data?.product?.title ?? ''} | Put in Bay Golf Cart Rental`;
-  const description = data?.product?.seo?.description ?? '';
-  const originalUrl = data?.product?.variants?.nodes?.[0]?.image?.url;
+  const productTitle = data?.product?.title ?? '';
+  const variantTitle = data?.product?.selectedVariant?.title ?? '';
+  const baseTitle = `${productTitle}${variantTitle && variantTitle !== 'Default Title' ? ` - ${variantTitle}` : ''}`;
 
-  // Shopify CDN transformation for center-cropped 1200x630 image
+  const title = `${baseTitle} | Put in Bay Golf Cart Rental`;
+  const description = data?.product?.seo?.description ?? '';
+  const originalUrl = data?.product?.selectedVariant?.image?.url;
+
   const fallbackOgImage = 'https://cdn.shopify.com/s/files/1/0717/0375/7111/files/CartRentalOGSharing.jpg?v=1752592075';
   const ogImage = originalUrl
-  ? `${originalUrl}${originalUrl.includes('?') ? '&' : '?'}width=1200&height=630&crop=center`
-  : fallbackOgImage;
+    ? `${originalUrl}${originalUrl.includes('?') ? '&' : '?'}width=1200&height=630&crop=center`
+    : fallbackOgImage;
 
   return [
     { title },
     { name: 'description', content: description },
+    { property: 'og:title', content: title },
     ogImage ? { property: 'og:image', content: ogImage } : null,
   ].filter(Boolean);
 };
-
 
 
 export async function loader({ params, request, context }) {
