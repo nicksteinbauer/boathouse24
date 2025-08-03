@@ -97,6 +97,7 @@
         "npm:react-bootstrap@^2.10.2",
         "npm:react-datepicker@^4.8.0",
         "npm:react-dom@^18.2.0",
+        "npm:react-ga4@^2.1.0",
         "npm:react-recaptcha@^2.3.10",
         "npm:react-scroll@^1.9.0",
         "npm:react@^18.2.0",
