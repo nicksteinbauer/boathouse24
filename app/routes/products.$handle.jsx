@@ -17,12 +17,12 @@ const formatDate = (dateString) => {
   return format(date, 'yyyy-MM-dd HH:mm'); // Use 'HH' for 24-hour format and remove 'aaaa'
 };
 
-export const meta = ({ data }) => {
+export const meta = ({ data, location }) => {
   const productTitle = data?.product?.title ?? '';
   const variantTitle = data?.product?.selectedVariant?.title ?? '';
   const baseTitle = `${productTitle}${variantTitle && variantTitle !== 'Default Title' ? ` - ${variantTitle}` : ''}`;
-
   const title = `${baseTitle} | Put in Bay Golf Cart Rental`;
+
   const description = data?.product?.seo?.description ?? '';
   const originalUrl = data?.product?.selectedVariant?.image?.url;
 
@@ -31,13 +31,17 @@ export const meta = ({ data }) => {
     ? `${originalUrl}${originalUrl.includes('?') ? '&' : '?'}width=1200&height=630&crop=center`
     : fallbackOgImage;
 
+  const canonicalUrl = `https://boathousecartrental.com/products/${data?.product?.handle}`;
+
   return [
     { title },
     { name: 'description', content: description },
     { property: 'og:title', content: title },
     ogImage ? { property: 'og:image', content: ogImage } : null,
+    { tagName: 'link', rel: 'canonical', href: canonicalUrl },
   ].filter(Boolean);
 };
+
 
 
 export async function loader({ params, request, context }) {
