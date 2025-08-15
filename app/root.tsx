@@ -1,4 +1,6 @@
 import {useNonce} from '@shopify/hydrogen';
+import {json} from '@netlify/remix-runtime';
+
 import {
   defer,
   type SerializeFrom,
@@ -16,15 +18,46 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
   type ShouldRevalidateFunction,
+  useLocation,
 } from '@remix-run/react';
+import {useEffect} from 'react';
 import type {CustomerAccessToken} from '@shopify/hydrogen/storefront-api-types';
 import favicon from '../public/favicon.svg';
 import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
 import {Layout} from '~/components/Layout';
 import FacebookPixel from './components/FacebookPixel';
-import GoogleAnalytics from './components/GoogleAnalytics';
 
+/** --- GA4 window typings to avoid TS errors --- */
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
+
+/** --- Small component to inject GA4 with nonce --- */
+function GoogleAnalytics({gaId, nonce}: {gaId?: string; nonce?: string}) {
+  if (!gaId || process.env.NODE_ENV !== 'production') return null;
+  return (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+      <script
+        nonce={nonce}
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            // We'll send page views manually on route changes:
+            gtag('config', '${gaId}', { send_page_view: false });
+          `,
+        }}
+      />
+    </>
+  );
+}
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -34,16 +67,8 @@ export const shouldRevalidate: ShouldRevalidateFunction = ({
   currentUrl,
   nextUrl,
 }) => {
-  // revalidate when a mutation is performed e.g add to cart, login...
-  if (formMethod && formMethod !== 'GET') {
-    return true;
-  }
-
-  // revalidate when manually revalidating via useRevalidator
-  if (currentUrl.toString() === nextUrl.toString()) {
-    return true;
-  }
-
+  if (formMethod && formMethod !== 'GET') return true;
+  if (currentUrl.toString() === nextUrl.toString()) return true;
   return false;
 };
 
@@ -51,14 +76,8 @@ export function links() {
   return [
     {rel: 'stylesheet', href: resetStyles},
     {rel: 'stylesheet', href: appStyles},
-    {
-      rel: 'preconnect',
-      href: 'https://cdn.shopify.com',
-    },
-    {
-      rel: 'preconnect',
-      href: 'https://shop.app',
-    },
+    {rel: 'preconnect', href: 'https://cdn.shopify.com'},
+    {rel: 'preconnect', href: 'https://shop.app'},
     {rel: 'icon', type: 'image/svg+xml', href: favicon},
   ];
 }
@@ -73,33 +92,29 @@ export async function loader({context}: LoaderFunctionArgs) {
   const customerAccessToken = await session.get('customerAccessToken');
   const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
 
-  // validate the customer access token is valid
+  // ✅ GA ID pulled from env
+  const gaId = context.env.GA_MEASUREMENT_ID || '';
+
   const {isLoggedIn, headers} = await validateCustomerAccessToken(
     session,
     customerAccessToken,
   );
 
-  // defer the cart query by not awaiting it
   const cartPromise = cart.get();
 
-  // defer the footer query (below the fold)
   const footerPromise = storefront.query(FOOTER_QUERY, {
     cache: storefront.CacheLong(),
-    variables: {
-      footerMenuHandle: 'footer', // Adjust to your footer menu handle
-    },
+    variables: {footerMenuHandle: 'footer'},
   });
 
-  // await the header query (above the fold)
   const headerPromise = storefront.query(HEADER_QUERY, {
     cache: storefront.CacheLong(),
-    variables: {
-      headerMenuHandle: 'main-menu', // Adjust to your header menu handle
-    },
+    variables: {headerMenuHandle: 'main-menu'},
   });
 
   return defer(
     {
+      gaId, // ✅ exposed to client
       cart: cartPromise,
       footer: footerPromise,
       header: await headerPromise,
@@ -113,6 +128,17 @@ export async function loader({context}: LoaderFunctionArgs) {
 export default function App() {
   const nonce = useNonce();
   const data = useLoaderData<typeof loader>();
+  const {gaId} = data;
+  const location = useLocation();
+
+  // ✅ Send GA page_view on every navigation
+  useEffect(() => {
+    if (!gaId || typeof window.gtag !== 'function') return;
+    window.gtag('config', gaId, {
+      page_path: location.pathname + location.search,
+      page_title: document.title,
+    });
+  }, [gaId, location.pathname, location.search]);
 
   return (
     <html lang="en">
@@ -121,12 +147,13 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        {/* ✅ GA scripts with CSP nonce */}
+        <GoogleAnalytics gaId={gaId} nonce={nonce} />
       </head>
       <body>
         <Layout {...data}>
           <Outlet />
           <FacebookPixel />
-          <GoogleAnalytics />
         </Layout>
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
@@ -181,14 +208,6 @@ export function ErrorBoundary() {
 /**
  * Validates the customer access token and returns a boolean and headers
  * @see https://shopify.dev/docs/api/storefront/latest/objects/CustomerAccessToken
- *
- * @example
- * ```js
- * const {isLoggedIn, headers} = await validateCustomerAccessToken(
- *  customerAccessToken,
- *  session,
- * );
- * ```
  */
 async function validateCustomerAccessToken(
   session: LoaderFunctionArgs['context']['session'],
