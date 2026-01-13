@@ -60,7 +60,7 @@ export default function Homepage() {
         {/* Display Products */}
         <section className="featured-products inside-xxl">
           <h2 className="text-center"><span><PinLogo /></span>Upcoming Golf Cart Rentals</h2>
-          <p className="text-center larger">The 2025 Season starts May 2nd</p>
+          <p className="text-center larger">The 2026 Season starts May 1st</p>
           <ul className="auto-grid-rates">
           {data.collection?.products.nodes
             .filter((product: any) => {

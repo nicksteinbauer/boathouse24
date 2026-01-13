@@ -48,6 +48,7 @@ const Hero: React.FC = () => {
                     <div className={`text-center`}>
                         <h1 className={`h1 noMargin`}>Put-in-Bay Golf Cart Rental</h1>
                         <h2 className={`h1`}>Boathouse Cart Rental</h2>
+                        <h2 className={`h1 teal`}><span>Book your cart for Summer 2026 now!</span></h2>
                         <div className={`inside-sm text-center heroFormContainer`}>
                             <MainForm />
                             <p className="text-center bright">
