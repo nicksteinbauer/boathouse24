@@ -12,20 +12,23 @@ type CartMainProps = {
 };
 
 export function CartMain({layout, cart}: CartMainProps) {
-  const linesCount = Boolean(cart?.lines?.nodes?.length || 0);
-  const withDiscount =
-    cart &&
-    Boolean(cart.discountCodes.filter((code) => code.applicable).length);
+  const linesCount = Boolean(cart?.lines?.nodes?.length);
+
+  const withDiscount = Boolean(
+    (cart?.discountCodes || []).filter(
+      (code) => code.applicable,
+    ).length,
+  );
+
   const className = `cart-main ${withDiscount ? 'with-discount' : ''}`;
 
   return (
     <div className="cartPage">
-        <CartEmpty hidden={linesCount} layout={layout} />
-        <CartDetails cart={cart} layout={layout} />
+      <CartEmpty hidden={linesCount} layout={layout} />
+      <CartDetails cart={cart} layout={layout} />
     </div>
   );
 }
-
 function CartDetails({layout, cart}: CartMainProps) {
   const cartHasItems = !!cart && cart.totalQuantity > 0;
 
