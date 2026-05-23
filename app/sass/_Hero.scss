@@ -7,7 +7,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
-    top: -75%; right: 0; bottom: 0; left: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
 }
 
 .heroOverlay {
@@ -43,7 +43,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffffff', e
     box-sizing: border-box;
     color: #fff;
     padding-top: 90px;
-    
+    .break {
+      @media screen and (min-width: $screen-md) {
+        display: block;
+      }
+    }
     @media screen and (min-width: $screen-md) {
         padding-top: 253px;
     }
@@ -52,8 +56,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccffffff', e
         margin-bottom: 10px;
         padding-top: 0;
         text-shadow: 0 0 5px #000000;
+        line-height: 1.1;
         @media screen and (min-width: $screen-md) {
             margin-bottom: 20px;
+            
         }
         
     }

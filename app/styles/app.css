@@ -1644,7 +1644,7 @@ button.closeButton svg {
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  top: -75%;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -1686,6 +1686,11 @@ button.closeButton svg {
   padding-top: 90px;
 }
 @media screen and (min-width: 992px) {
+  .hero .break {
+    display: block;
+  }
+}
+@media screen and (min-width: 992px) {
   .hero {
     padding-top: 253px;
   }
@@ -1695,6 +1700,7 @@ button.closeButton svg {
   margin-bottom: 10px;
   padding-top: 0;
   text-shadow: 0 0 5px #000000;
+  line-height: 1.1;
 }
 @media screen and (min-width: 992px) {
   .hero .h1 {
