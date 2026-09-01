@@ -875,12 +875,12 @@ class MainForm extends React.Component {
       ...this.generateExcludedDates("2026-01-01", "2026-05-01"), // First range
       ...this.generateExcludedDates("2026-05-05", "2026-05-08"), // Second range
       ...this.generateExcludedDates("2026-05-12", "2026-05-15"), // Third range
-      // ...this.generateExcludedDates("2025-09-23", "2025-09-26"), // Fourth range
-      // ...this.generateExcludedDates("2025-09-30", "2025-10-03"), // Fifth range
-      // ...this.generateExcludedDates("2025-10-07", "2025-10-10"), // Fifth range
-      // ...this.generateExcludedDates("2025-10-14", "2025-10-17"), // Sixth range
-      // ...this.generateExcludedDates("2025-10-21", "2025-10-24"), // Seventh range
-      ...this.generateExcludedDates("2026-09-09", "2030-10-31"), // Final range
+      ...this.generateExcludedDates("2026-09-22", "2026-09-25"), // Fourth range
+      ...this.generateExcludedDates("2026-09-29", "2026-10-02"), // Fifth range
+      ...this.generateExcludedDates("2026-10-06", "2026-10-09"), // Sixth range
+      ...this.generateExcludedDates("2026-10-13", "2026-10-16"), // Seventh range
+      ...this.generateExcludedDates("2026-10-20", "2026-10-23"), // Eighth range
+      ...this.generateExcludedDates("2026-10-26", "2030-10-31"), // Final range
     ];
 
     return (
