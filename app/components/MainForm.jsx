@@ -438,7 +438,52 @@ class MainForm extends React.Component {
     if((this.state.date.toLocaleDateString() == '9/20/2026') && (this.state.value == 'cartrental')) {
       window.location.href = '/products/september-20-2026';
     }
-    
+    if((this.state.date.toLocaleDateString() == '9/25/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/september-25-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '9/26/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/september-26-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '9/27/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/september-27-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/2/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-2-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/3/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-3-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/4/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-4-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/9/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-9-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/10/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-10-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/11/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-11-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/16/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-16-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/17/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-17-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/18/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-18-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/23/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-23-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/24/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-24-2026';
+    }
+    if((this.state.date.toLocaleDateString() == '10/25/2026') && (this.state.value == 'cartrental')) {
+      window.location.href = '/products/october-25-2026';
+    }
+
 
     // Bicycles
 
@@ -880,7 +925,7 @@ class MainForm extends React.Component {
       ...this.generateExcludedDates("2026-10-06", "2026-10-09"), // Sixth range
       ...this.generateExcludedDates("2026-10-13", "2026-10-16"), // Seventh range
       ...this.generateExcludedDates("2026-10-20", "2026-10-23"), // Eighth range
-      ...this.generateExcludedDates("2026-10-26", "2030-10-31"), // Final range
+      ...this.generateExcludedDates("2026-10-27", "2030-10-31"), // Final range
     ];
 
     return (
